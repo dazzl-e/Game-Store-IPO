@@ -1,9 +1,21 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function SideBar({triggerSiderBar, setTriggerSideBar}) {
-    
+  useEffect(() =>{
+    if(triggerSiderBar){
+      document.body.style.overflow = 'hidden'
+    }
+    else{
+      document.body.style.overflow = 'unset'
+    }
+
+    return () =>{
+      document.body.style.overflow = 'unset'
+    }
+
+  },[triggerSiderBar])
 
   return (
     <>

@@ -3,7 +3,6 @@ import { faBars, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Navbar({setTriggerSideBar, counterItems}) {
-
   return (
     <>
         <nav className="flex justify-center items-center p-3 border-b-2 border-gray-200 shadow-sm">  
