@@ -7,16 +7,17 @@ import SideBar from './components/sidebar/SideBar'
 
 function App() {
   const [triggerSiderBar, setTriggerSideBar] = useState(false)
+  const [counterItems, setCounterItems] = useState(0)
 
   return (
     <>
     <div className='relative min-w-[400px]'>
-      <Navbar setTriggerSideBar={setTriggerSideBar}/>
+      <Navbar setTriggerSideBar={setTriggerSideBar} counterItems={counterItems}/>
       <SideBar triggerSiderBar={triggerSiderBar} setTriggerSideBar={setTriggerSideBar}/>
       <div className='flex justify-center items-center p-5 '>
         <div className='w-[1500px] '>
         <Routes>
-            <Route path='/' element={<LandingPage/>}/>
+            <Route path='/' element={<LandingPage setCounterItems={setCounterItems}/>}/>
             <Route path='/cart' />
             <Route path='/signin'/>
             <Route path='/signup'/>

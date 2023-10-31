@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function GameCard({name, description, price}) {
+export default function GameCard({name, description, price, setCounterItems}) {
     
-    const handleHeartClicked = () =>{
-
+    const handleAddCart = () =>{
+        setCounterItems(prevCounter => prevCounter + 1)
     }
 
   return (
@@ -20,7 +20,7 @@ export default function GameCard({name, description, price}) {
             <div className="flex justify-between items-center">
                 <p className="font-bold text-xl">{price}</p>
                 <div>
-                    <FontAwesomeIcon className="h-6 w-6 hover:cursor-pointer p-3" icon={faCartPlus} />
+                    <FontAwesomeIcon onClick={handleAddCart} className="h-6 w-6 hover:cursor-pointer p-3" icon={faCartPlus} />
                     <FontAwesomeIcon className="h-6 w-6 hover:cursor-pointer p-3" icon={faHeart}/>
                 </div>
             </div>

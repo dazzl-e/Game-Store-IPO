@@ -1,16 +1,8 @@
 import { faCircleUser, faHeart,} from "@fortawesome/free-regular-svg-icons";
 import { faBars, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 
-export default function Navbar({setTriggerSideBar}) {
-    const [itemsCounter, setItemsCounter] = useState(0)
-
-    const handleShoppingCartItems = () =>{
-        setItemsCounter(prevCounter => prevCounter + 1);
-    }
-
-
+export default function Navbar({setTriggerSideBar, counterItems}) {
 
   return (
     <>
@@ -24,8 +16,8 @@ export default function Navbar({setTriggerSideBar}) {
                     <FontAwesomeIcon className="h-6 w-6 hover:cursor-pointer p-3" icon={faHeart}/>
                     <FontAwesomeIcon className="h-6 w-6 hover:cursor-pointer p-3" icon={faCircleUser}/>
                     <div className="relative flex justify-center items-center">
-                        <FontAwesomeIcon onClick={handleShoppingCartItems} className="h-6 w-6 p-3 hover:cursor-pointer" icon={faCartShopping} />
-                        <div className={`absolute ${itemsCounter === 0 ? 'hidden' : 'flex'} select-none h-6 w-6 rounded-full outline outline-2 outline-slate-400 bottom-[0px] -right-[5px] text-black text-sm flex justify-center items-center`}>{itemsCounter <= 20 ? (itemsCounter) : ('20+')}</div>
+                        <FontAwesomeIcon className="h-6 w-6 p-3 hover:cursor-pointer" icon={faCartShopping} />
+                        <div className={`absolute ${counterItems === 0 ? 'hidden' : 'flex'} select-none h-6 w-6 rounded-full outline outline-2 outline-slate-400 bottom-[0px] -right-[5px] text-black text-sm flex justify-center items-center`}>{counterItems <= 20 ? (counterItems) : ('20+')}</div>
                     </div>
                 </div>
             </div>    

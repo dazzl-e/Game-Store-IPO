@@ -17,13 +17,13 @@ const dummyGames =
     {name: 'Counter-Strike' , desription: 'blah blah blah' , price: '$50.00'},
 ]
 
-export default function LandingPage() {
+export default function LandingPage({setCounterItems}) {
   return (
     <div className='grid mx-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10'>
     {dummyGames.map((games, index) => 
         (
             <div className='mx-auto'>
-            <GameCard key={index} name={games.name} description={games.desription} price={games.price}/>
+            <GameCard key={index} name={games.name} description={games.desription} price={games.price} setCounterItems={setCounterItems}/>
             </div>
         ))}
         
